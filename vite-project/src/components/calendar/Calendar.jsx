@@ -9,7 +9,7 @@ function CalendarContent() {
             <div className="calendar__day-name">пт</div>
             <div className="calendar__day-name -weekend-">сб</div>
             <div className="calendar__day-name -weekend-">вс</div>
-        </div> 
+        </div>
         <div className="calendar__cells">
             <div className="calendar__cell _other-month">28</div>
             <div className="calendar__cell _other-month">29</div>
