@@ -1,23 +1,33 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import './App.css'
-import IsExit from './components/exit/IsExit'
-import CreatedTask from './components/createdTask/CreatedTask'
-import DataTask from './components/dataAboutTasks/DataTasks'
-import Header from './components/header/Header'
-import MainBlock from './components/mainBlock/MainBlock'
-import CalendarContent from './components/calendar/Calendar'
+import { Header } from './components/header/Header'
+import { MainBlock } from './components/main/Main'
+import { initialTasks } from '../../data'
+
 
 
 function App() {
+  
+
+const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000);
+  }
+  ,[])
+  
+
+const [tasksList, setTasksList] = useState(initialTasks)
+
+
   return (
     <>
-      <Header/>
-      <IsExit/>
-      <CreatedTask/>
-      <DataTask/>
-      <MainBlock/>
-      
-   </>
+       <Header tasksList={tasksList} setTasksList={setTasksList}/>
+      <MainBlock tasksList={tasksList} isLoading={isLoading}/>
+    </>
   )
 }
 
