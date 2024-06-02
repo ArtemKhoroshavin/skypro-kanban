@@ -1,10 +1,7 @@
-import React from 'react'
-import IsExit from '../components/exit/IsExit'
+import PopExit from "../components/Popups/PopExit";
 
-const ExitPage = ({exitUser}) => {
-  return (
-    <IsExit exitUser={exitUser}/>
-  )
-}
+const ExitPage = () => {
+  return <PopExit />;
+};
 
-export default ExitPage
+export default ExitPage;

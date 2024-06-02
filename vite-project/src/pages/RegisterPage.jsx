@@ -1,12 +1,7 @@
-import React from 'react'
-import Register from '../components/register/Register'
+import SignUp from "../components/Auth/SignUp";
 
-const RegisterPage = ({createUser}) => {
+const RegisterPage = () => {
+  return <SignUp />;
+};
 
-
-  return (
-    <Register createUser={createUser}/>
-  )
-}
-
-export default RegisterPage
+export default RegisterPage;

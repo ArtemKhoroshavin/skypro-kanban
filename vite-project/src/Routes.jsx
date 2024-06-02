@@ -1,54 +1,34 @@
-import React, { useState } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
-import { paths } from './lib/constsns'
-import MainPage from './pages/MainPage'
-import RegisterPage from './pages/RegisterPage'
-import ExitPage from './pages/ExitPage'
-import LoginPage from './pages/LoginPage'
-import CardPage from './pages/CardPage'
-import NotFoundPage from './pages/NotFoundPage'
-import PrivateRoutes from './components/routes/PrivateRoutes'
+import { Route, Routes } from "react-router-dom";
+import { paths } from "../src/lib/const";
+import PrivateRoute from "../src/components/PrivateRoute/PrivateRoute";
+import MainPage from "../src/pages/MainPage";
+import RegisterPage from "../src/pages/RegisterPage";
+import ExitPage from "../src/pages/ExitPage";
+import LoginPage from "../src/pages/LoginPage";
+import CardPage from "../src/pages/CardPage";
+import NewCardPage from "../src/pages/NewCardPage";
+import NotFoundPage from "../src/pages/NotFoundPage";
+// import EditCardPage from "../src/pages/EditPage";
 
 const AppRoutes = () => {
+  return (
+    <>
+      <Routes>
+        <Route element={<PrivateRoute />}>
+          <Route path={paths.MAIN} element={<MainPage />}>
+            <Route path={paths.EXIT} element={<ExitPage />} />
+            <Route path={paths.CARD} element={<CardPage />} />
+            <Route path={paths.NEWCARD} element={<NewCardPage />} />
+            {/* <Route path={paths.EDIT} element={<EditCardPage />} /> */}
+          </Route>
+        </Route>
 
-//  const [isAuth, setIsAuth] = useState(false)
+        <Route path={paths.REGISTER} element={<RegisterPage />} />
+        <Route path={paths.LOGIN} element={<LoginPage />} />
+        <Route path={paths.ERROR} element={<NotFoundPage />} />
+      </Routes>
+    </>
+  );
+};
 
-const navigate = useNavigate()
-
- const [user, setUser] = useState(null)
- 
- function createUser (newUser) {
-    setUser(newUser)
-    navigate(paths.MAIN)
- }
-
- function exitUser () {
-    setUser(null)
-    navigate(paths.LOGIN)
- }
-
-    return (
-        <>
-            <Routes>
-
-                <Route element={<PrivateRoutes user={user}/>}>
-                    <Route path={paths.MAIN} element={<MainPage user={user}/>}>
-
-                        <Route path={paths.EXIT} element={<ExitPage exitUser={exitUser}/>} /> 
-                        <Route path={paths.CARD} element={<CardPage />} /> 
-
-                    </Route>
-                </Route>
-
-        
-                <Route path={paths.ERROR} element={<NotFoundPage />} />
-                <Route path={paths.LOGIN} element={<LoginPage  createUser={createUser} />} />
-                <Route path={paths.REGISTER} element={<RegisterPage createUser={createUser}/>} />
-
-            </Routes>
-        </>
-    )
-
-}
-
-export default AppRoutes
+export default AppRoutes;

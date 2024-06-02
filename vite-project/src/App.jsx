@@ -1,23 +1,14 @@
-import { useState } from 'react'
-import './App.css'
-import { tasks } from './data'
-import { useEffect } from 'react'
-import { GlobalStyle } from './components/Global.styled'
-import AppRoutes from './Routes'
-
-
-
+import "./App.css";
+import { GlobalStyle } from "./styles/global.styled.js";
+import AppRoutes from "./Routes.jsx";
 
 function App() {
-
-
   return (
     <>
       <GlobalStyle />
-
-      <AppRoutes/>
-   </>
-  )
+      <AppRoutes />
+    </>
+  );
 }
 
-export default App
+export default App;

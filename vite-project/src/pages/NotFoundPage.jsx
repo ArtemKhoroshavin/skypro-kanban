@@ -1,11 +1,11 @@
+import React from "react";
 
-
-function NotFound() {
+const NotFoundPage = () => {
   return (
     <div>
-      <h2>Страница не найдена</h2>
+      <h2>Страница не найдена!</h2>
     </div>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFoundPage;

@@ -1,10 +1,12 @@
-import React from 'react'
-import DataTask from '../components/dataAboutTasks/DataTasks'
+import React from "react";
+import PopBrowse from "../components/Popups/PopBrowse";
 
 const CardPage = () => {
   return (
-      <DataTask/>
-  )
-}
+    <div>
+      <PopBrowse />
+    </div>
+  );
+};
 
-export default CardPage
+export default CardPage;
